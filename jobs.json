@@ -1,0 +1,737 @@
+{
+  "jobs": [
+    {
+      "id": "gaming-expert",
+      "title": "Gaming Expert",
+      "designation": "Gaming Expert",
+      "location": "Hyderabad",
+      "state": "Telangana",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "On-site",
+      "experience": {
+        "min": 0,
+        "max": 3,
+        "display": "0-3 years"
+      },
+      "description": "We're looking for a passionate Gaming Expert to join our innovative gaming division in Hyderabad. You'll work on cutting-edge game development, player experience optimization, and next-generation gaming technologies.",
+      "fullDescription": "We're looking for a passionate Gaming Expert to join our innovative gaming division in Hyderabad, Telangana. You'll work on cutting-edge game development, player experience optimization, and next-generation gaming technologies. This role is perfect for software developers and game developers who want to work on exciting projects in the gaming industry.",
+      "requirements": {
+        "jobProvides": [
+          "This full-time role offers the chance to work on exciting projects in web development/game development/software development",
+          "Join the Gaming FC Mobile team for a dynamic and engaging experience",
+          "We are seeking hands-on coders with internship and project experience, along with a robust GitHub account showcasing your work",
+          "Familiarity with Scrum ceremonies and proficiency in JavaScript are essential skills for this role",
+          "If you have a passion for playing and developing video games, we want to hear from you!"
+        ]
+      },
+      "skills": ["JavaScript", "Game Development", "Software Development", "Scrum", "GitHub"],
+      "sector": "IT Technology",
+      "datePosted": "2025-01-15",
+      "validThrough": "2025-12-31",
+      "applicationQuestions": [
+        {
+          "id": "location-confirm",
+          "type": "radio",
+          "question": "Are you willing to relocate to Hyderabad or currently located in Hyderabad?",
+          "required": true,
+          "options": ["Yes, I am in Hyderabad", "Yes, I can relocate", "No, I prefer remote"]
+        },
+        {
+          "id": "gaming-experience",
+          "type": "text",
+          "question": "How many years of experience do you have in game development?",
+          "required": true,
+          "placeholder": "e.g., 2 years"
+        },
+        {
+          "id": "github-profile",
+          "type": "url",
+          "question": "Please provide your GitHub profile URL",
+          "required": true,
+          "placeholder": "https://github.com/yourusername"
+        },
+        {
+          "id": "javascript-proficiency",
+          "type": "select",
+          "question": "What is your proficiency level in JavaScript?",
+          "required": true,
+          "options": ["Beginner", "Intermediate", "Advanced", "Expert"]
+        },
+        {
+          "id": "scrum-experience",
+          "type": "radio",
+          "question": "Do you have experience with Scrum ceremonies?",
+          "required": true,
+          "options": ["Yes", "No", "Some experience"]
+        }
+      ]
+    },
+    {
+      "id": "software-engineer",
+      "title": "Software Engineer",
+      "designation": "Software Engineer",
+      "location": "Bangalore",
+      "state": "Karnataka",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "Hybrid",
+      "experience": {
+        "min": 2,
+        "max": 5,
+        "display": "2-5 years"
+      },
+      "description": "Join our core technology team to build scalable software solutions in Bangalore. Work with modern technologies including Node.js, Python, Java, and cloud platforms.",
+      "fullDescription": "Join our core technology team to build scalable software solutions in Bangalore, India. Work with modern technologies including Node.js, Python, Java, and cloud platforms (AWS, Azure, GCP). Contribute to our platform's architecture and microservices development. This is an excellent opportunity for experienced software engineers and backend developers.",
+      "requirements": {
+        "responsibilities": [
+          "Develop and maintain backend services and APIs",
+          "Write clean, efficient, and well-documented code",
+          "Collaborate with frontend developers and product teams",
+          "Participate in code reviews and technical discussions",
+          "Optimize application performance and scalability"
+        ],
+        "requirements": [
+          "2+ years experience in software development",
+          "Proficiency in Node.js/Python/Java",
+          "Experience with database design and optimization",
+          "Knowledge of cloud platforms (AWS/Azure/GCP)",
+          "Understanding of microservices architecture"
+        ]
+      },
+      "skills": ["Node.js", "Python", "Java", "AWS", "Azure", "GCP", "Microservices", "API Development"],
+      "sector": "IT Technology",
+      "datePosted": "2025-01-10",
+      "validThrough": "2025-12-31",
+      "applicationQuestions": [
+        {
+          "id": "location-confirm",
+          "type": "radio",
+          "question": "Are you willing to relocate to Bangalore or currently located there?",
+          "required": true,
+          "options": ["Yes, I am in Bangalore", "Yes, I can relocate", "No, I prefer remote"]
+        },
+        {
+          "id": "backend-experience",
+          "type": "text",
+          "question": "How many years of backend development experience do you have?",
+          "required": true,
+          "placeholder": "e.g., 3 years"
+        },
+        {
+          "id": "primary-language",
+          "type": "select",
+          "question": "What is your primary programming language?",
+          "required": true,
+          "options": ["Node.js", "Python", "Java", "Other"]
+        },
+        {
+          "id": "cloud-platform",
+          "type": "checkbox",
+          "question": "Which cloud platforms have you worked with? (Select all that apply)",
+          "required": true,
+          "options": ["AWS", "Azure", "GCP", "None"]
+        },
+        {
+          "id": "microservices-experience",
+          "type": "radio",
+          "question": "Do you have experience with microservices architecture?",
+          "required": true,
+          "options": ["Yes, extensive experience", "Yes, some experience", "No, but willing to learn"]
+        }
+      ]
+    },
+    {
+      "id": "ux-ui-designer",
+      "title": "UX/UI Designer",
+      "designation": "UX/UI Designer",
+      "location": "Remote",
+      "state": "",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "Remote",
+      "experience": {
+        "min": 3,
+        "max": 7,
+        "display": "3-7 years"
+      },
+      "description": "Create beautiful and intuitive user experiences for our digital products. Work closely with product teams to design user-centric interfaces for web and mobile applications.",
+      "fullDescription": "Create beautiful and intuitive user experiences for our digital products. Work closely with product teams to design user-centric interfaces and engaging user journeys for web and mobile applications. This remote position is ideal for experienced UX/UI designers who excel in Figma, Sketch, or Adobe XD.",
+      "requirements": {
+        "responsibilities": [
+          "Design user interfaces for web and mobile applications",
+          "Create wireframes, prototypes, and high-fidelity mockups",
+          "Conduct user research and usability testing",
+          "Collaborate with developers to implement designs",
+          "Maintain and evolve design systems"
+        ],
+        "requirements": [
+          "3+ years experience in UX/UI design",
+          "Proficiency in Figma, Sketch, or Adobe XD",
+          "Strong portfolio showcasing design process",
+          "Understanding of user-centered design principles",
+          "Experience with responsive and mobile design"
+        ]
+      },
+      "skills": ["Figma", "Sketch", "Adobe XD", "User Research", "Prototyping", "UI/UX Design"],
+      "sector": "IT Technology",
+      "datePosted": "2025-01-08",
+      "validThrough": "2025-12-31"
+    },
+    {
+      "id": "senior-software-developer",
+      "title": "Senior Software Developer",
+      "designation": "Senior Developer",
+      "location": "Hyderabad",
+      "state": "Telangana",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "Hybrid",
+      "experience": {
+        "min": 5,
+        "max": 10,
+        "display": "5-10 years"
+      },
+      "description": "Lead development of complex software solutions and mentor junior developers. Architect scalable systems and drive technical excellence in our Hyderabad office.",
+      "fullDescription": "We are looking for an experienced Senior Software Developer to lead our development team in Hyderabad. You will be responsible for architecting scalable solutions, mentoring junior developers, and driving technical excellence. This role requires strong leadership skills and deep technical expertise.",
+      "requirements": {
+        "responsibilities": [
+          "Lead development of complex software solutions",
+          "Mentor and guide junior developers",
+          "Architect scalable and maintainable systems",
+          "Participate in technical decision-making",
+          "Code review and quality assurance"
+        ],
+        "requirements": [
+          "5+ years of software development experience",
+          "Strong expertise in Node.js, React, or Python",
+          "Experience with cloud platforms (AWS/Azure/GCP)",
+          "Excellent leadership and communication skills",
+          "Experience with microservices architecture"
+        ]
+      },
+      "skills": ["Node.js", "React", "Python", "AWS", "Leadership", "MongoDB", "Docker"],
+      "sector": "IT Technology",
+      "datePosted": "2025-01-12",
+      "validThrough": "2025-12-31"
+    },
+    {
+      "id": "bpo-team-lead",
+      "title": "BPO Team Lead",
+      "designation": "Team Lead",
+      "location": "Hyderabad",
+      "state": "Telangana",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "On-site",
+      "experience": {
+        "min": 3,
+        "max": 6,
+        "display": "3-6 years"
+      },
+      "description": "Lead a team of BPO professionals in customer service operations. Manage daily operations, ensure quality standards, and drive team performance in our Hyderabad center.",
+      "fullDescription": "We are seeking an experienced BPO Team Lead to manage our customer service operations in Hyderabad. You will lead a team of customer service representatives, ensure quality standards, handle escalations, and drive performance metrics. This role requires strong leadership and communication skills.",
+      "requirements": {
+        "responsibilities": [
+          "Lead and manage a team of BPO professionals",
+          "Monitor and improve team performance metrics",
+          "Handle customer escalations and complex queries",
+          "Conduct team training and development sessions",
+          "Ensure compliance with quality standards"
+        ],
+        "requirements": [
+          "3+ years experience in BPO operations",
+          "Previous team leadership experience",
+          "Excellent communication and interpersonal skills",
+          "Strong problem-solving abilities",
+          "Knowledge of CRM systems and call center tools"
+        ]
+      },
+      "skills": ["Team Leadership", "Customer Service", "BPO Operations", "CRM", "Performance Management"],
+      "sector": "BPO",
+      "datePosted": "2025-01-14",
+      "validThrough": "2025-12-31",
+      "applicationQuestions": [
+        {
+          "id": "location-confirm",
+          "type": "radio",
+          "question": "Are you available to work on-site in Hyderabad?",
+          "required": true,
+          "options": ["Yes, I am in Hyderabad", "Yes, I can relocate", "No"]
+        },
+        {
+          "id": "bpo-experience",
+          "type": "text",
+          "question": "How many years of BPO team leadership experience do you have?",
+          "required": true,
+          "placeholder": "e.g., 4 years"
+        },
+        {
+          "id": "team-size",
+          "type": "select",
+          "question": "What is the largest team size you have managed?",
+          "required": true,
+          "options": ["1-10 members", "11-25 members", "26-50 members", "50+ members"]
+        },
+        {
+          "id": "shift-availability",
+          "type": "checkbox",
+          "question": "Which shifts are you available to work?",
+          "required": true,
+          "options": ["Day Shift", "Night Shift", "Rotating Shifts", "Flexible"]
+        },
+        {
+          "id": "crm-systems",
+          "type": "text",
+          "question": "Which CRM systems have you worked with?",
+          "required": true,
+          "placeholder": "e.g., Salesforce, Zoho, HubSpot"
+        }
+      ]
+    },
+    {
+      "id": "bpo-customer-service",
+      "title": "Customer Service Representative",
+      "designation": "Customer Service Executive",
+      "location": "Hyderabad",
+      "state": "Telangana",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "On-site",
+      "experience": {
+        "min": 0,
+        "max": 2,
+        "display": "0-2 years"
+      },
+      "description": "Join our customer service team and help customers resolve their queries. Great opportunity for freshers and entry-level professionals to start their career in BPO.",
+      "fullDescription": "We are hiring Customer Service Representatives for our BPO operations in Hyderabad. This is an excellent opportunity for freshers and entry-level professionals to start their career. You will handle customer inquiries, resolve issues, and provide excellent service. Training will be provided.",
+      "requirements": {
+        "jobProvides": [
+          "Comprehensive training program",
+          "Career growth opportunities",
+          "Competitive salary and benefits",
+          "Supportive work environment",
+          "Flexible shift options"
+        ],
+        "requirements": [
+          "12th pass or graduation preferred",
+          "Good communication skills in English and Hindi",
+          "Basic computer knowledge",
+          "Willingness to work in shifts",
+          "Customer-focused attitude"
+        ]
+      },
+      "skills": ["Customer Service", "Communication", "Problem Solving", "English", "Hindi"],
+      "sector": "BPO",
+      "datePosted": "2025-01-16",
+      "validThrough": "2025-12-31"
+    },
+    {
+      "id": "healthcare-nurse",
+      "title": "Registered Nurse",
+      "designation": "Staff Nurse",
+      "location": "Hyderabad",
+      "state": "Telangana",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "On-site",
+      "experience": {
+        "min": 1,
+        "max": 4,
+        "display": "1-4 years"
+      },
+      "description": "Join our healthcare team as a Registered Nurse. Provide quality patient care, assist doctors, and ensure smooth hospital operations in our Hyderabad facility.",
+      "fullDescription": "We are looking for a dedicated Registered Nurse to join our healthcare team in Hyderabad. You will provide quality patient care, assist doctors during procedures, monitor patient conditions, and ensure smooth hospital operations. This role requires compassion, attention to detail, and strong clinical skills.",
+      "requirements": {
+        "responsibilities": [
+          "Provide direct patient care and monitoring",
+          "Assist doctors during medical procedures",
+          "Administer medications and treatments",
+          "Maintain accurate patient records",
+          "Educate patients and families on care plans"
+        ],
+        "requirements": [
+          "B.Sc Nursing or GNM qualification",
+          "Valid nursing license",
+          "1+ years of nursing experience",
+          "Strong clinical skills and attention to detail",
+          "Excellent communication and empathy"
+        ]
+      },
+      "skills": ["Patient Care", "Clinical Skills", "Medical Procedures", "Nursing", "Healthcare"],
+      "sector": "Healthcare",
+      "datePosted": "2025-01-13",
+      "validThrough": "2025-12-31",
+      "applicationQuestions": [
+        {
+          "id": "location-confirm",
+          "type": "radio",
+          "question": "Are you available to work on-site in Hyderabad?",
+          "required": true,
+          "options": ["Yes, I am in Hyderabad", "Yes, I can relocate", "No"]
+        },
+        {
+          "id": "nursing-qualification",
+          "type": "select",
+          "question": "What is your nursing qualification?",
+          "required": true,
+          "options": ["B.Sc Nursing", "GNM", "ANM", "Other"]
+        },
+        {
+          "id": "nursing-license",
+          "type": "radio",
+          "question": "Do you have a valid nursing license?",
+          "required": true,
+          "options": ["Yes, valid license", "License expired", "No license"]
+        },
+        {
+          "id": "clinical-experience",
+          "type": "text",
+          "question": "How many years of clinical nursing experience do you have?",
+          "required": true,
+          "placeholder": "e.g., 2 years"
+        },
+        {
+          "id": "specialization",
+          "type": "checkbox",
+          "question": "In which areas do you have experience? (Select all that apply)",
+          "required": true,
+          "options": ["General Ward", "ICU", "Emergency", "Operation Theatre", "Pediatrics", "Other"]
+        }
+      ]
+    },
+    {
+      "id": "healthcare-pharmacist",
+      "title": "Pharmacist",
+      "designation": "Pharmacist",
+      "location": "Secunderabad",
+      "state": "Telangana",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "On-site",
+      "experience": {
+        "min": 2,
+        "max": 5,
+        "display": "2-5 years"
+      },
+      "description": "Manage pharmacy operations, dispense medications, and provide pharmaceutical care. Join our healthcare team in Secunderabad.",
+      "fullDescription": "We are seeking an experienced Pharmacist to manage our pharmacy operations in Secunderabad. You will dispense medications, provide pharmaceutical care, counsel patients, and ensure compliance with regulations. This role requires strong knowledge of medications and excellent attention to detail.",
+      "requirements": {
+        "responsibilities": [
+          "Dispense medications accurately",
+          "Provide pharmaceutical counseling to patients",
+          "Manage pharmacy inventory",
+          "Ensure compliance with pharmacy regulations",
+          "Collaborate with healthcare providers"
+        ],
+        "requirements": [
+          "B.Pharm or D.Pharm degree",
+          "Valid pharmacist license",
+          "2+ years of pharmacy experience",
+          "Strong knowledge of medications",
+          "Excellent attention to detail"
+        ]
+      },
+      "skills": ["Pharmacy", "Medications", "Patient Counseling", "Inventory Management", "Healthcare"],
+      "sector": "Healthcare",
+      "datePosted": "2025-01-11",
+      "validThrough": "2025-12-31"
+    },
+    {
+      "id": "frontend-developer",
+      "title": "Frontend Developer",
+      "designation": "Frontend Developer",
+      "location": "Hyderabad",
+      "state": "Telangana",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "Remote",
+      "experience": {
+        "min": 1,
+        "max": 4,
+        "display": "1-4 years"
+      },
+      "description": "Build beautiful and responsive web applications using modern frontend technologies. Work remotely with our development team.",
+      "fullDescription": "We are looking for a Frontend Developer to join our team. You will build beautiful and responsive web applications using React, Vue.js, or Angular. This remote position offers flexibility and the opportunity to work on exciting projects with a talented team.",
+      "requirements": {
+        "responsibilities": [
+          "Develop responsive web applications",
+          "Implement UI/UX designs",
+          "Optimize application performance",
+          "Collaborate with backend developers",
+          "Write clean and maintainable code"
+        ],
+        "requirements": [
+          "1+ years of frontend development experience",
+          "Proficiency in React, Vue.js, or Angular",
+          "Strong knowledge of HTML, CSS, and JavaScript",
+          "Experience with responsive design",
+          "Understanding of REST APIs"
+        ]
+      },
+      "skills": ["React", "Vue.js", "Angular", "JavaScript", "HTML", "CSS", "Responsive Design"],
+      "sector": "IT Technology",
+      "datePosted": "2025-01-09",
+      "validThrough": "2025-12-31"
+    },
+    {
+      "id": "data-analyst",
+      "title": "Data Analyst",
+      "designation": "Data Analyst",
+      "location": "Bangalore",
+      "state": "Karnataka",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "Hybrid",
+      "experience": {
+        "min": 2,
+        "max": 5,
+        "display": "2-5 years"
+      },
+      "description": "Analyze data to provide insights and support business decisions. Work with SQL, Python, and data visualization tools in our Bangalore office.",
+      "fullDescription": "Join our data analytics team in Bangalore. You will analyze large datasets, create reports and dashboards, and provide actionable insights to support business decisions. This role requires strong analytical skills and proficiency in data analysis tools.",
+      "requirements": {
+        "responsibilities": [
+          "Analyze large datasets to extract insights",
+          "Create reports and data visualizations",
+          "Support business decision-making with data",
+          "Maintain data quality and accuracy",
+          "Collaborate with cross-functional teams"
+        ],
+        "requirements": [
+          "2+ years of data analysis experience",
+          "Proficiency in SQL and Python",
+          "Experience with data visualization tools (Tableau, Power BI)",
+          "Strong analytical and problem-solving skills",
+          "Knowledge of statistics and data modeling"
+        ]
+      },
+      "skills": ["SQL", "Python", "Tableau", "Power BI", "Data Analysis", "Statistics"],
+      "sector": "IT Technology",
+      "datePosted": "2025-01-07",
+      "validThrough": "2025-12-31"
+    },
+    {
+      "id": "bpo-quality-analyst",
+      "title": "Quality Analyst",
+      "designation": "Quality Analyst",
+      "location": "Hyderabad",
+      "state": "Telangana",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "On-site",
+      "experience": {
+        "min": 2,
+        "max": 4,
+        "display": "2-4 years"
+      },
+      "description": "Ensure quality standards in BPO operations. Monitor calls, evaluate performance, and provide feedback to improve service quality.",
+      "fullDescription": "We are hiring a Quality Analyst for our BPO operations in Hyderabad. You will monitor customer interactions, evaluate performance against quality standards, provide feedback to agents, and help improve overall service quality. This role is critical for maintaining high service standards.",
+      "requirements": {
+        "responsibilities": [
+          "Monitor and evaluate customer interactions",
+          "Assess performance against quality standards",
+          "Provide feedback and coaching to agents",
+          "Generate quality reports and analytics",
+          "Identify areas for process improvement"
+        ],
+        "requirements": [
+          "2+ years of experience in BPO quality analysis",
+          "Strong analytical and evaluation skills",
+          "Excellent communication skills",
+          "Knowledge of quality frameworks and standards",
+          "Attention to detail"
+        ]
+      },
+      "skills": ["Quality Analysis", "Call Monitoring", "Performance Evaluation", "Analytics", "BPO"],
+      "sector": "BPO",
+      "datePosted": "2025-01-05",
+      "validThrough": "2025-12-31"
+    },
+    {
+      "id": "healthcare-doctor",
+      "title": "General Practitioner",
+      "designation": "Medical Officer",
+      "location": "Hyderabad",
+      "state": "Telangana",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "On-site",
+      "experience": {
+        "min": 3,
+        "max": 8,
+        "display": "3-8 years"
+      },
+      "description": "Provide medical care to patients, diagnose conditions, and prescribe treatments. Join our healthcare facility in Hyderabad.",
+      "fullDescription": "We are seeking an experienced General Practitioner to join our healthcare facility in Hyderabad. You will provide comprehensive medical care to patients, diagnose medical conditions, prescribe treatments, and coordinate with specialists. This role requires strong clinical skills and compassion for patients.",
+      "requirements": {
+        "responsibilities": [
+          "Diagnose and treat medical conditions",
+          "Prescribe medications and treatments",
+          "Coordinate with specialists when needed",
+          "Maintain accurate medical records",
+          "Provide patient education and counseling"
+        ],
+        "requirements": [
+          "MBBS degree with valid medical license",
+          "3+ years of clinical experience",
+          "Strong diagnostic and clinical skills",
+          "Excellent communication and empathy",
+          "Commitment to patient care"
+        ]
+      },
+      "skills": ["General Medicine", "Diagnosis", "Patient Care", "Clinical Skills", "Healthcare"],
+      "sector": "Healthcare",
+      "datePosted": "2025-01-06",
+      "validThrough": "2025-12-31"
+    },
+    {
+      "id": "devops-engineer",
+      "title": "DevOps Engineer",
+      "designation": "DevOps Engineer",
+      "location": "Bangalore",
+      "state": "Karnataka",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "Hybrid",
+      "experience": {
+        "min": 3,
+        "max": 7,
+        "display": "3-7 years"
+      },
+      "description": "Manage infrastructure, automate deployments, and ensure system reliability. Work with cloud platforms and CI/CD tools.",
+      "fullDescription": "Join our DevOps team in Bangalore. You will manage cloud infrastructure, automate deployments, monitor systems, and ensure high availability. This role requires expertise in cloud platforms, containerization, and CI/CD pipelines.",
+      "requirements": {
+        "responsibilities": [
+          "Manage and maintain cloud infrastructure",
+          "Automate deployment and scaling processes",
+          "Monitor system performance and reliability",
+          "Implement CI/CD pipelines",
+          "Troubleshoot infrastructure issues"
+        ],
+        "requirements": [
+          "3+ years of DevOps experience",
+          "Expertise in AWS, Azure, or GCP",
+          "Experience with Docker and Kubernetes",
+          "Knowledge of CI/CD tools (Jenkins, GitLab CI)",
+          "Strong scripting skills (Bash, Python)"
+        ]
+      },
+      "skills": ["AWS", "Docker", "Kubernetes", "CI/CD", "Jenkins", "Linux", "DevOps"],
+      "sector": "IT Technology",
+      "datePosted": "2025-01-04",
+      "validThrough": "2025-12-31"
+    },
+    {
+      "id": "bpo-sales-executive",
+      "title": "Sales Executive",
+      "designation": "Sales Executive",
+      "location": "Hyderabad",
+      "state": "Telangana",
+      "country": "India",
+      "employmentType": "Full-time",
+      "workMode": "On-site",
+      "experience": {
+        "min": 1,
+        "max": 3,
+        "display": "1-3 years"
+      },
+      "description": "Drive sales and build customer relationships. Handle inbound and outbound sales calls in our BPO center.",
+      "fullDescription": "We are hiring Sales Executives for our BPO operations in Hyderabad. You will handle inbound and outbound sales calls, build customer relationships, achieve sales targets, and provide product information. This role offers excellent growth opportunities for motivated individuals.",
+      "requirements": {
+        "responsibilities": [
+          "Handle inbound and outbound sales calls",
+          "Build and maintain customer relationships",
+          "Achieve sales targets and KPIs",
+          "Provide product information to customers",
+          "Maintain accurate sales records"
+        ],
+        "requirements": [
+          "1+ years of sales experience",
+          "Excellent communication and persuasion skills",
+          "Ability to work under pressure",
+          "Target-driven mindset",
+          "Basic computer knowledge"
+        ]
+      },
+      "skills": ["Sales", "Communication", "Customer Relations", "BPO", "CRM"],
+      "sector": "BPO",
+      "datePosted": "2025-01-03",
+      "validThrough": "2025-12-31"
+    },
+    {
+      "id": "healthcare-lab-technician",
+      "title": "Lab Technician",
+      "designation": "Medical Lab Technician",
+      "location": "Hyderabad",
+      "state": "Telangana",
+      "country": "India",
+      "employmentType": "Part-time",
+      "workMode": "On-site",
+      "experience": {
+        "min": 1,
+        "max": 3,
+        "display": "1-3 years"
+      },
+      "description": "Perform laboratory tests and assist in medical diagnostics. Part-time position in our healthcare facility.",
+      "fullDescription": "We are looking for a Medical Lab Technician for part-time work in our healthcare facility in Hyderabad. You will perform laboratory tests, prepare samples, operate lab equipment, and assist in medical diagnostics. This is a great opportunity for experienced lab technicians seeking flexible hours.",
+      "requirements": {
+        "responsibilities": [
+          "Perform laboratory tests and analyses",
+          "Prepare and process samples",
+          "Operate and maintain lab equipment",
+          "Maintain accurate lab records",
+          "Follow safety and quality protocols"
+        ],
+        "requirements": [
+          "DMLT or B.Sc in Medical Lab Technology",
+          "1+ years of lab experience",
+          "Knowledge of lab procedures and equipment",
+          "Attention to detail and accuracy",
+          "Ability to work in shifts"
+        ]
+      },
+      "skills": ["Laboratory", "Medical Testing", "Lab Equipment", "Sample Processing", "Healthcare"],
+      "sector": "Healthcare",
+      "datePosted": "2025-01-02",
+      "validThrough": "2025-12-31"
+    },
+    {
+      "id": "contract-developer",
+      "title": "Contract Software Developer",
+      "designation": "Software Developer",
+      "location": "Remote",
+      "state": "",
+      "country": "India",
+      "employmentType": "Contract",
+      "workMode": "Remote",
+      "experience": {
+        "min": 2,
+        "max": 5,
+        "display": "2-5 years"
+      },
+      "description": "Work on a contract basis developing software solutions. Remote position with flexible hours for experienced developers.",
+      "fullDescription": "We are looking for a Contract Software Developer to work on specific projects. This remote position offers flexibility and the opportunity to work on diverse projects. You will develop software solutions, collaborate with teams, and deliver high-quality code on time.",
+      "requirements": {
+        "responsibilities": [
+          "Develop software solutions as per requirements",
+          "Write clean and maintainable code",
+          "Participate in code reviews",
+          "Meet project deadlines",
+          "Communicate progress regularly"
+        ],
+        "requirements": [
+          "2+ years of software development experience",
+          "Proficiency in multiple programming languages",
+          "Ability to work independently",
+          "Strong problem-solving skills",
+          "Good communication skills"
+        ]
+      },
+      "skills": ["Software Development", "Programming", "Problem Solving", "Remote Work"],
+      "sector": "IT Technology",
+      "datePosted": "2025-01-01",
+      "validThrough": "2025-06-30"
+    }
+  ]
+}

@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply for job opportunities at Deccan Bridge Careers. Submit your application and relevant details for the position.">
+    <meta name="keywords" content="job application, apply for jobs, career opportunities, Deccan Bridge Careers">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://deccanbridgecareers.com/JobApplication.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deccanbridgecareers.com/JobApplication.html">
+    <meta property="og:title" content="Job Application - Deccan Bridge Careers">
+    <meta property="og:description" content="Apply for exciting career opportunities at Deccan Bridge Careers">
+    
+    <title>Job Application - Deccan Bridge Careers</title>
+    
+    <!-- Google Fonts - Roboto (Material Design) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Font Awesome - Load asynchronously -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Material Design System -->
+    <link rel="stylesheet" href="material-design.css">
+    
+    <style>
+        /* Material Design Variables */
+        :root {
+            --md-primary: #1976D2;
+            --md-primary-dark: #1565C0;
+            --md-primary-light: #42A5F5;
+            --md-primary-50: #E3F2FD;
+            --md-background: #FFFFFF;
+            --md-surface: #FFFFFF;
+            --md-surface-variant: #FAFAFA;
+            --md-text-primary: #1A1A1A;
+            --md-text-secondary: #424242;
+            --md-text-on-primary: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--md-font-family);
+            background: var(--md-background);
+            color: var(--md-text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            font-size: 16px;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: 0.01em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--md-spacing-lg);
+            width: 100%;
+        }
+        
+        /* Navigation - Material Design */
+        .nav {
+            background: var(--md-surface);
+            box-shadow: var(--md-elevation-2);
+            padding: var(--md-spacing-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--md-spacing-lg);
+            position: relative;
+        }
+        
+        .nav-logo {
+            font-family: var(--md-font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--md-primary);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: var(--md-spacing-sm);
+        }
+        
+        .logo-nav {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--md-radius-sm);
+            object-fit: contain;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--md-spacing-xs);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--md-text-primary);
+            font-weight: 500;
+            font-size: 14px;
+            transition: background var(--md-transition-fast);
+            padding: var(--md-spacing-sm) var(--md-spacing-md);
+            border-radius: var(--md-radius-sm);
+            display: flex;
+            align-items: center;
+            min-height: 40px;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--md-primary-50);
+            color: var(--md-primary);
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+            min-width: 44px;
+            min-height: 44px;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--md-text-primary);
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Job Info Card */
+        .job-info-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .job-info-card h2 {
+            color: #1a365d;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+            font-size: 0.9375rem;
+        }
+        
+        .job-meta-item i {
+            color: #3182ce;
+        }
+        
+        /* Application Form */
+        .application-form {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .form-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .form-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .form-section h3 {
+            color: #1a365d;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
+        }
+        
+        .form-group label .required {
+            color: #e53e3e;
+            margin-left: 0.25rem;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="url"],
+        .form-group input[type="number"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 0.9375rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #3182ce;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-group .radio-group,
+        .form-group .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .form-group .radio-option,
+        .form-group .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .form-group .radio-option input[type="radio"],
+        .form-group .checkbox-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .form-group .radio-option label,
+        .form-group .checkbox-option label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+            color: #475569;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: #3182ce;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2c5aa0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #475569;
+        }
+        
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+        
+        .error-message {
+            color: #e53e3e;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .form-group.error .error-message {
+            display: block;
+        }
+        
+        .form-group.error input,
+        .form-group.error textarea,
+        .form-group.error select {
+            border-color: #e53e3e;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+        }
+        
+        .error-state {
+            text-align: center;
+            padding: 3rem;
+            color: #e53e3e;
+        }
+        
+        .error-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(15, 23, 42, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                transition: left 0.3s;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .application-form {
+                padding: 1.5rem;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .job-meta {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .footer {
+                padding: 2rem 0;
+                margin-top: 2rem;
+            }
+            
+            .social-icons {
+                gap: 1rem;
+            }
+            
+            .social-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Footer Styles */
+        .social-section {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+            border: 2px solid transparent;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Individual platform colors */
+        .social-icon.linkedin:hover { background: #0077b5; border-color: #0077b5; }
+        .social-icon.twitter:hover { background: #1da1f2; border-color: #1da1f2; }
+        .social-icon.facebook:hover { background: #1877f2; border-color: #1877f2; }
+        .social-icon.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            border-color: transparent;
+        }
+                
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: rgba(255,255,255,0.7);
+            background: rgba(15, 23, 42, 0.9);
+            margin-top: 4rem;
+            border-radius: 15px;
+        }
+        
+        .logo-header {
+            width: 80px;
+            height: auto;
+            border-radius: 8px;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body itemscope itemtype="https://schema.org/WebPage">
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="Deccan Bridge Careers Home">
+                <img src="Images/DeccanBridgeCareers.jpg" alt="Deccan Bridge Careers Logo" class="logo-nav" loading="lazy" width="40" height="40">
+                <span>Deccan Bridge Careers</span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="AboutUS.html" role="menuitem">About Us</a></li>
+                <li role="none"><a href="Jobs.html" role="menuitem">Jobs</a></li>
+                <li role="none"><a href="Contact.html" role="menuitem">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Job Application</h1>
+            <p id="jobTitleHeader">Loading job details...</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div id="loadingState" class="loading">
+            <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+            <p>Loading job details...</p>
+        </div>
+        
+        <div id="errorState" class="error-state" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h2>Job Not Found</h2>
+            <p>The job you're looking for doesn't exist or has been removed.</p>
+            <a href="Jobs.html" class="btn btn-primary" style="margin-top: 1rem;">Browse All Jobs</a>
+        </div>
+        
+        <div id="applicationContent" style="display: none;">
+            <!-- Job Info Card -->
+            <div class="job-info-card">
+                <h2 id="jobTitle"></h2>
+                <div class="job-meta">
+                    <div class="job-meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="jobLocation"></span>
+                    </div>
+                    <div class="job-meta-item">
+                        <i class="fas fa-briefcase"></i>
+                        <span id="jobEmploymentType"></span>
+                    </div>
+                    <div class="job-meta-item">
+                        <i class="fas fa-building"></i>
+                        <span id="jobWorkMode"></span>
+                    </div>
+                    <div class="job-meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span id="jobExperience"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Application Form -->
+            <form class="application-form" id="applicationForm" itemscope itemtype="https://schema.org/JobPosting">
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required>
+                        <div class="error-message">Please enter your full name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <div class="error-message">Please enter a valid phone number</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="state">State <span class="required">*</span></label>
+                        <select id="state" name="state" required>
+                            <option value="">Select State</option>
+                        </select>
+                        <div class="error-message">Please select your state</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="city">City <span class="required">*</span></label>
+                        <select id="city" name="city" required disabled>
+                            <option value="">Select State First</option>
+                        </select>
+                        <div class="error-message">Please select your city</div>
+                    </div>
+                    
+                    <!-- Hidden field to maintain backward compatibility -->
+                    <input type="hidden" id="currentLocation" name="currentLocation">
+                </div>
+                
+                <!-- Professional Information Section -->
+                <div class="form-section">
+                    <h3>Professional Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="totalExperience">Total Years of Experience <span class="required">*</span></label>
+                        <input type="number" id="totalExperience" name="totalExperience" min="0" step="0.5" required>
+                        <div class="error-message">Please enter your years of experience</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="currentCompany">Current Company (if applicable)</label>
+                        <input type="text" id="currentCompany" name="currentCompany" placeholder="Company name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="currentDesignation">Current Designation</label>
+                        <input type="text" id="currentDesignation" name="currentDesignation" placeholder="Your current job title">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="resume">Resume/CV <span class="required">*</span></label>
+                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                        <div id="resumeFileInfo" style="margin-top: 0.5rem; padding: 0.5rem; background: #f1f5f9; border-radius: 4px; display: none;">
+                            <span id="resumeFileName" style="color: #1e40af; font-weight: 500;"></span>
+                            <span id="resumeFileSize" style="color: #64748b; margin-left: 0.5rem;"></span>
+                            <span style="color: #10b981; margin-left: 0.5rem; font-size: 0.875rem;">(Restored from cache)</span>
+                        </div>
+                        <div class="error-message">Please upload your resume</div>
+                        <small style="color: #64748b; margin-top: 0.5rem; display: block;">Accepted formats: PDF, DOC, DOCX (Max 5MB)</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="coverLetter">Cover Letter</label>
+                        <textarea id="coverLetter" name="coverLetter" placeholder="Tell us why you're interested in this position..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Job-Specific Questions Section -->
+                <div class="form-section" id="jobQuestionsSection">
+                    <h3>Job-Specific Questions</h3>
+                    <div id="jobQuestionsContainer">
+                        <!-- Dynamic questions will be inserted here -->
+                    </div>
+                </div>
+                
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <a href="Jobs.html" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Submit Application
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/9849771155?text=Hi%20I%20want%20to%20chat" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp"
+       class="whatsapp-button"
+       style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px 20px; border-radius:50px; text-decoration:none; z-index:999; box-shadow:0 4px 12px rgba(0,0,0,0.3); display:flex; align-items:center; gap:8px; font-size:0.95rem; transition:transform 0.3s, box-shadow 0.3s; min-height:44px;">
+       <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> <span class="whatsapp-text">Chat on WhatsApp</span>
+    </a>
+
+    <script>
+        let currentJob = null;
+        
+        // Get job ID from URL
+        function getJobIdFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('jobId');
+        }
+        
+        // Load job details
+        async function loadJobDetails() {
+            const jobId = getJobIdFromURL();
+            
+            if (!jobId) {
+                showError();
+                return;
+            }
+            
+            try {
+                const response = await fetch('jobs.json');
+                const data = await response.json();
+                currentJob = data.jobs.find(job => job.id === jobId);
+                
+                if (!currentJob) {
+                    showError();
+                    return;
+                }
+                
+                displayJobDetails();
+                populateJobQuestions();
+                showApplicationForm();
+            } catch (error) {
+                console.error('Error loading job:', error);
+                showError();
+            }
+        }
+        
+        // Display job details
+        function displayJobDetails() {
+            document.getElementById('jobTitleHeader').textContent = currentJob.title;
+            document.getElementById('jobTitle').textContent = currentJob.title;
+            document.getElementById('jobLocation').textContent = `${currentJob.location}${currentJob.state ? `, ${currentJob.state}` : ''}, ${currentJob.country}`;
+            document.getElementById('jobEmploymentType').textContent = currentJob.employmentType;
+            document.getElementById('jobWorkMode').textContent = currentJob.workMode;
+            document.getElementById('jobExperience').textContent = `${currentJob.experience.display} experience`;
+            
+            // Update work mode icon
+            const workModeIcon = document.querySelector('#jobWorkMode').previousElementSibling;
+            if (currentJob.workMode === 'Remote') {
+                workModeIcon.className = 'fas fa-globe';
+            } else if (currentJob.workMode === 'Hybrid') {
+                workModeIcon.className = 'fas fa-laptop-house';
+            } else {
+                workModeIcon.className = 'fas fa-building';
+            }
+        }
+        
+        // Populate job-specific questions
+        function populateJobQuestions() {
+            const container = document.getElementById('jobQuestionsContainer');
+            
+            if (!currentJob.applicationQuestions || currentJob.applicationQuestions.length === 0) {
+                // Generate default questions based on job data
+                const defaultQuestions = generateDefaultQuestions();
+                renderQuestions(container, defaultQuestions);
+            } else {
+                renderQuestions(container, currentJob.applicationQuestions);
+            }
+        }
+        
+        // Generate default questions based on job data
+        function generateDefaultQuestions() {
+            const questions = [];
+            
+            // Location question
+            questions.push({
+                id: 'location-confirm',
+                type: 'radio',
+                question: `Are you willing to work in ${currentJob.location} or currently located there?`,
+                required: true,
+                options: [`Yes, I am in ${currentJob.location}`, `Yes, I can relocate to ${currentJob.location}`, 'No, I prefer remote']
+            });
+            
+            // Experience question
+            questions.push({
+                id: 'relevant-experience',
+                type: 'text',
+                question: `How many years of relevant experience do you have for this ${currentJob.designation} position?`,
+                required: true,
+                placeholder: `e.g., ${currentJob.experience.display}`
+            });
+            
+            // Work mode question
+            if (currentJob.workMode !== 'Remote') {
+                questions.push({
+                    id: 'work-mode-preference',
+                    type: 'radio',
+                    question: `This is a ${currentJob.workMode} position. Are you comfortable with this work arrangement?`,
+                    required: true,
+                    options: ['Yes', 'No', 'Would prefer different arrangement']
+                });
+            }
+            
+            // Sector-specific questions
+            if (currentJob.sector === 'IT Technology') {
+                questions.push({
+                    id: 'technical-skills',
+                    type: 'text',
+                    question: 'Please list your key technical skills relevant to this position',
+                    required: true,
+                    placeholder: 'e.g., JavaScript, Python, React...'
+                });
+            } else if (currentJob.sector === 'BPO') {
+                questions.push({
+                    id: 'communication-skills',
+                    type: 'select',
+                    question: 'How would you rate your English communication skills?',
+                    required: true,
+                    options: ['Excellent', 'Good', 'Average', 'Basic']
+                });
+            } else if (currentJob.sector === 'Healthcare') {
+                questions.push({
+                    id: 'certification',
+                    type: 'text',
+                    question: 'Please list your relevant certifications or licenses',
+                    required: true,
+                    placeholder: 'e.g., B.Sc Nursing, Medical License...'
+                });
+            }
+            
+            return questions;
+        }
+        
+        // Render questions
+        function renderQuestions(container, questions) {
+            container.innerHTML = questions.map((q, index) => {
+                let inputHTML = '';
+                
+                if (q.type === 'text' || q.type === 'email' || q.type === 'tel' || q.type === 'url' || q.type === 'number') {
+                    inputHTML = `
+                        <input type="${q.type}" 
+                               id="question-${q.id}" 
+                               name="question-${q.id}" 
+                               ${q.required ? 'required' : ''} 
+                               placeholder="${q.placeholder || ''}">
+                    `;
+                } else if (q.type === 'textarea') {
+                    inputHTML = `
+                        <textarea id="question-${q.id}" 
+                                  name="question-${q.id}" 
+                                  ${q.required ? 'required' : ''} 
+                                  placeholder="${q.placeholder || ''}"></textarea>
+                    `;
+                } else if (q.type === 'select') {
+                    inputHTML = `
+                        <select id="question-${q.id}" 
+                                name="question-${q.id}" 
+                                ${q.required ? 'required' : ''}>
+                            <option value="">Select an option</option>
+                            ${q.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                        </select>
+                    `;
+                } else if (q.type === 'radio') {
+                    inputHTML = `
+                        <div class="radio-group">
+                            ${q.options.map(opt => `
+                                <div class="radio-option">
+                                    <input type="radio" 
+                                           id="question-${q.id}-${opt.replace(/\s+/g, '-').toLowerCase()}" 
+                                           name="question-${q.id}" 
+                                           value="${opt}" 
+                                           ${q.required ? 'required' : ''}>
+                                    <label for="question-${q.id}-${opt.replace(/\s+/g, '-').toLowerCase()}">${opt}</label>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                } else if (q.type === 'checkbox') {
+                    inputHTML = `
+                        <div class="checkbox-group">
+                            ${q.options.map(opt => `
+                                <div class="checkbox-option">
+                                    <input type="checkbox" 
+                                           id="question-${q.id}-${opt.replace(/\s+/g, '-').toLowerCase()}" 
+                                           name="question-${q.id}[]" 
+                                           value="${opt}" 
+                                           ${q.required ? 'required' : ''}>
+                                    <label for="question-${q.id}-${opt.replace(/\s+/g, '-').toLowerCase()}">${opt}</label>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+                
+                return `
+                    <div class="form-group">
+                        <label for="question-${q.id}">
+                            ${q.question} ${q.required ? '<span class="required">*</span>' : ''}
+                        </label>
+                        ${inputHTML}
+                        <div class="error-message">Please answer this question</div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // Show application form
+        function showApplicationForm() {
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('errorState').style.display = 'none';
+            document.getElementById('applicationContent').style.display = 'block';
+        }
+        
+        // Show error state
+        function showError() {
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('errorState').style.display = 'block';
+            document.getElementById('applicationContent').style.display = 'none';
+        }
+        
+        // Form caching functions
+        const CACHE_KEY = 'job_application_cache';
+        const CACHE_FILE_KEY = 'job_application_file_cache';
+        
+        // Save form data to cache
+        function saveFormToCache() {
+            try {
+                const form = document.getElementById('applicationForm');
+                if (!form) return;
+                
+                const formData = new FormData(form);
+                const cacheData = {
+                    jobId: currentJob?.id || null,
+                    personalInfo: {
+                        fullName: formData.get('fullName') || '',
+                        email: formData.get('email') || '',
+                        phone: formData.get('phone') || '',
+                        currentLocation: formData.get('currentLocation') || ''
+                    },
+                    professionalInfo: {
+                        totalExperience: formData.get('totalExperience') || '',
+                        currentCompany: formData.get('currentCompany') || '',
+                        currentDesignation: formData.get('currentDesignation') || '',
+                        coverLetter: formData.get('coverLetter') || ''
+                    },
+                    jobQuestions: {}
+                };
+                
+                // Collect job-specific questions
+                const questionInputs = form.querySelectorAll('[id^="question-"]');
+                questionInputs.forEach(input => {
+                    if (input.type === 'checkbox') {
+                        if (input.checked) {
+                            const name = input.name.replace('[]', '');
+                            if (!cacheData.jobQuestions[name]) {
+                                cacheData.jobQuestions[name] = [];
+                            }
+                            cacheData.jobQuestions[name].push(input.value);
+                        }
+                    } else if (input.type === 'radio') {
+                        if (input.checked) {
+                            cacheData.jobQuestions[input.name] = input.value;
+                        }
+                    } else {
+                        cacheData.jobQuestions[input.name] = input.value || '';
+                    }
+                });
+                
+                // Save to localStorage
+                localStorage.setItem(CACHE_KEY, JSON.stringify(cacheData));
+                
+                // Handle file upload - convert to base64
+                const resumeFile = formData.get('resume');
+                if (resumeFile && resumeFile.size > 0) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const fileData = {
+                            name: resumeFile.name,
+                            type: resumeFile.type,
+                            size: resumeFile.size,
+                            data: e.target.result // base64 string
+                        };
+                        localStorage.setItem(CACHE_FILE_KEY, JSON.stringify(fileData));
+                    };
+                    reader.onerror = function() {
+                        console.error('Error reading file for cache');
+                    };
+                    reader.readAsDataURL(resumeFile);
+                } else {
+                    // Remove file cache if no file
+                    localStorage.removeItem(CACHE_FILE_KEY);
+                }
+            } catch (error) {
+                console.error('Error saving form to cache:', error);
+            }
+        }
+        
+        // Restore form data from cache
+        function restoreFormFromCache() {
+            try {
+                const cachedData = localStorage.getItem(CACHE_KEY);
+                if (!cachedData) return false;
+                
+                const data = JSON.parse(cachedData);
+                const form = document.getElementById('applicationForm');
+                if (!form) return false;
+                
+                // Check if cached job matches current job
+                if (data.jobId && currentJob && data.jobId !== currentJob.id) {
+                    clearFormCache();
+                    return false;
+                }
+                
+                // Restore personal info
+                if (data.personalInfo) {
+                    const fullNameInput = form.querySelector('[name="fullName"]');
+                    const emailInput = form.querySelector('[name="email"]');
+                    const phoneInput = form.querySelector('[name="phone"]');
+                    const stateInput = form.querySelector('[name="state"]');
+                    const cityInput = form.querySelector('[name="city"]');
+                    const locationInput = form.querySelector('[name="currentLocation"]');
+                    
+                    if (fullNameInput) fullNameInput.value = data.personalInfo.fullName || '';
+                    if (emailInput) emailInput.value = data.personalInfo.email || '';
+                    if (phoneInput) phoneInput.value = data.personalInfo.phone || '';
+                    
+                    // Restore state and city
+                    if (data.personalInfo.state && stateInput) {
+                        stateInput.value = data.personalInfo.state;
+                        // Trigger change to populate cities
+                        stateInput.dispatchEvent(new Event('change'));
+                        
+                        // Restore city after cities are loaded
+                        setTimeout(() => {
+                            if (data.personalInfo.city && cityInput) {
+                                cityInput.value = data.personalInfo.city;
+                            }
+                        }, 100);
+                    } else if (data.personalInfo.currentLocation && locationInput) {
+                        // Fallback: parse location string
+                        const location = data.personalInfo.currentLocation;
+                        const parts = location.split(',').map(p => p.trim());
+                        if (parts.length >= 2 && stateInput) {
+                            const city = parts[0];
+                            const state = parts.slice(1).join(', ');
+                            stateInput.value = state;
+                            stateInput.dispatchEvent(new Event('change'));
+                            setTimeout(() => {
+                                if (cityInput) cityInput.value = city;
+                            }, 100);
+                        }
+                        locationInput.value = location;
+                    }
+                }
+                
+                // Restore professional info
+                if (data.professionalInfo) {
+                    const expInput = form.querySelector('[name="totalExperience"]');
+                    const companyInput = form.querySelector('[name="currentCompany"]');
+                    const designationInput = form.querySelector('[name="currentDesignation"]');
+                    const coverLetterInput = form.querySelector('[name="coverLetter"]');
+                    
+                    if (expInput) expInput.value = data.professionalInfo.totalExperience || '';
+                    if (companyInput) companyInput.value = data.professionalInfo.currentCompany || '';
+                    if (designationInput) designationInput.value = data.professionalInfo.currentDesignation || '';
+                    if (coverLetterInput) coverLetterInput.value = data.professionalInfo.coverLetter || '';
+                }
+                
+                // Restore job questions
+                if (data.jobQuestions) {
+                    Object.keys(data.jobQuestions).forEach(questionName => {
+                        const value = data.jobQuestions[questionName];
+                        const inputs = form.querySelectorAll(`[name="${questionName}"]`);
+                        
+                        inputs.forEach(input => {
+                            if (input.type === 'checkbox') {
+                                if (Array.isArray(value) && value.includes(input.value)) {
+                                    input.checked = true;
+                                }
+                            } else if (input.type === 'radio') {
+                                if (input.value === value) {
+                                    input.checked = true;
+                                }
+                            } else {
+                                input.value = value || '';
+                            }
+                        });
+                    });
+                }
+                
+                // Restore file
+                const fileCache = localStorage.getItem(CACHE_FILE_KEY);
+                if (fileCache) {
+                    try {
+                        const fileData = JSON.parse(fileCache);
+                        const resumeInput = form.querySelector('[name="resume"]');
+                        const fileInfoDiv = document.getElementById('resumeFileInfo');
+                        const fileNameSpan = document.getElementById('resumeFileName');
+                        const fileSizeSpan = document.getElementById('resumeFileSize');
+                        
+                        if (resumeInput && fileData.data && fileInfoDiv && fileNameSpan && fileSizeSpan) {
+                            // Show file info
+                            fileNameSpan.textContent = fileData.name;
+                            fileSizeSpan.textContent = `(${(fileData.size / 1024).toFixed(2)} KB)`;
+                            fileInfoDiv.style.display = 'block';
+                            
+                            // Store file data for submission
+                            resumeInput.dataset.cachedFile = fileData.data;
+                            resumeInput.dataset.cachedFileName = fileData.name;
+                            resumeInput.dataset.cachedFileType = fileData.type;
+                            
+                            // When user selects a new file, hide the cached file info
+                            resumeInput.addEventListener('change', function() {
+                                if (this.files.length > 0) {
+                                    fileInfoDiv.style.display = 'none';
+                                    delete this.dataset.cachedFile;
+                                    delete this.dataset.cachedFileName;
+                                    delete this.dataset.cachedFileType;
+                                }
+                            });
+                        }
+                    } catch (error) {
+                        console.error('Error parsing file cache:', error);
+                    }
+                }
+                
+                return true;
+            } catch (error) {
+                console.error('Error restoring form from cache:', error);
+                return false;
+            }
+        }
+        
+        // Clear form cache
+        function clearFormCache() {
+            localStorage.removeItem(CACHE_KEY);
+            localStorage.removeItem(CACHE_FILE_KEY);
+        }
+        
+        // Auto-save form data on input change
+        function setupFormAutoSave() {
+            const form = document.getElementById('applicationForm');
+            if (!form) return;
+            
+            // Save on any input change
+            form.addEventListener('input', function() {
+                saveFormToCache();
+            });
+            
+            // Save on file change
+            const fileInput = form.querySelector('[name="resume"]');
+            const fileInfoDiv = document.getElementById('resumeFileInfo');
+            if (fileInput) {
+                fileInput.addEventListener('change', function() {
+                    // Hide cached file info if new file is selected
+                    if (fileInfoDiv && this.files.length > 0) {
+                        fileInfoDiv.style.display = 'none';
+                    }
+                    saveFormToCache();
+                });
+            }
+            
+            // Save on checkbox/radio change
+            form.addEventListener('change', function() {
+                saveFormToCache();
+            });
+        }
+        
+        // Form validation
+        function validateForm() {
+            const form = document.getElementById('applicationForm');
+            const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                const formGroup = input.closest('.form-group');
+                // Check for file input - validate both new file and cached file
+                if (input.type === 'file') {
+                    const hasFile = (input.files && input.files.length > 0) || input.dataset.cachedFile;
+                    if (!hasFile) {
+                        formGroup.classList.add('error');
+                        isValid = false;
+                    } else {
+                        formGroup.classList.remove('error');
+                    }
+                } else if (!input.value) {
+                    formGroup.classList.add('error');
+                    isValid = false;
+                } else {
+                    formGroup.classList.remove('error');
+                }
+            });
+            
+            // Validate radio groups
+            const radioGroups = form.querySelectorAll('.radio-group');
+            radioGroups.forEach(group => {
+                const radios = group.querySelectorAll('input[type="radio"][required]');
+                const formGroup = group.closest('.form-group');
+                const checked = Array.from(radios).some(radio => radio.checked);
+                if (!checked) {
+                    formGroup.classList.add('error');
+                    isValid = false;
+                } else {
+                    formGroup.classList.remove('error');
+                }
+            });
+            
+            // Validate file - check both new file and cached file
+            const resumeInput = form.querySelector('[name="resume"]');
+            const resumeGroup = resumeInput?.closest('.form-group');
+            if (resumeInput && resumeGroup) {
+                const hasFile = (resumeInput.files && resumeInput.files.length > 0) || resumeInput.dataset.cachedFile;
+                if (!hasFile) {
+                    resumeGroup.classList.add('error');
+                    isValid = false;
+                } else {
+                    resumeGroup.classList.remove('error');
+                }
+            }
+            
+            return isValid;
+        }
+        
+        // Handle form submission
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            const formData = new FormData(this);
+            const applicationData = {
+                jobId: currentJob.id,
+                jobTitle: currentJob.title,
+                timestamp: new Date().toISOString(),
+                personalInfo: {
+                    fullName: formData.get('fullName'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    state: formData.get('state'),
+                    city: formData.get('city'),
+                    currentLocation: formData.get('currentLocation') || `${formData.get('city') || ''}, ${formData.get('state') || ''}`.replace(/^,\s*|,\s*$/g, '')
+                },
+                professionalInfo: {
+                    totalExperience: formData.get('totalExperience'),
+                    currentCompany: formData.get('currentCompany'),
+                    currentDesignation: formData.get('currentDesignation'),
+                    coverLetter: formData.get('coverLetter')
+                },
+                jobQuestions: {}
+            };
+            
+            // Collect job-specific questions
+            const questionInputs = this.querySelectorAll('[id^="question-"]');
+            questionInputs.forEach(input => {
+                if (input.type === 'checkbox') {
+                    if (input.checked) {
+                        const name = input.name.replace('[]', '');
+                        if (!applicationData.jobQuestions[name]) {
+                            applicationData.jobQuestions[name] = [];
+                        }
+                        applicationData.jobQuestions[name].push(input.value);
+                    }
+                } else if (input.type === 'radio') {
+                    if (input.checked) {
+                        applicationData.jobQuestions[input.name] = input.value;
+                    }
+                } else {
+                    applicationData.jobQuestions[input.name] = input.value;
+                }
+            });
+            
+            // Submit application to server/API
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            
+            // Create FormData for file upload
+            const uploadFormData = new FormData();
+            uploadFormData.append('jobId', applicationData.jobId);
+            uploadFormData.append('jobTitle', applicationData.jobTitle);
+            uploadFormData.append('personalInfo', JSON.stringify(applicationData.personalInfo));
+            uploadFormData.append('professionalInfo', JSON.stringify(applicationData.professionalInfo));
+            uploadFormData.append('jobQuestions', JSON.stringify(applicationData.jobQuestions));
+            
+            // Append resume file if uploaded (check both new file and cached file)
+            const resumeFile = formData.get('resume');
+            const resumeInput = this.querySelector('[name="resume"]');
+            
+            if (resumeFile && resumeFile.size > 0) {
+                // New file uploaded
+                uploadFormData.append('resume', resumeFile);
+            } else if (resumeInput && resumeInput.dataset.cachedFile) {
+                // Use cached file - convert base64 to blob
+                try {
+                    const base64Data = resumeInput.dataset.cachedFile;
+                    const fileName = resumeInput.dataset.cachedFileName || 'resume.pdf';
+                    const fileType = resumeInput.dataset.cachedFileType || 'application/pdf';
+                    
+                    // Convert base64 to blob
+                    const byteCharacters = atob(base64Data.split(',')[1]);
+                    const byteNumbers = new Array(byteCharacters.length);
+                    for (let i = 0; i < byteCharacters.length; i++) {
+                        byteNumbers[i] = byteCharacters.charCodeAt(i);
+                    }
+                    const byteArray = new Uint8Array(byteNumbers);
+                    const blob = new Blob([byteArray], { type: fileType });
+                    const file = new File([blob], fileName, { type: fileType });
+                    
+                    uploadFormData.append('resume', file);
+                } catch (error) {
+                    console.error('Error converting cached file:', error);
+                }
+            }
+            
+            // Submit to API endpoint with FormData (for file upload)
+            fetch('/api/submit-application', {
+                method: 'POST',
+                body: uploadFormData
+            })
+            .then(response => {
+                // Check if response is ok
+                if (!response.ok) {
+                    return response.json().then(err => {
+                        throw new Error(err.error || `Server error: ${response.status}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    // Keep cache even after successful submission
+                    // clearFormCache(); // Removed - cache will persist
+                    
+                    // Show success message
+                    alert('Thank you for your application! We will review your details and get back to you soon.');
+                    
+                    // Redirect to jobs page
+                    window.location.href = 'Jobs.html';
+                } else {
+                    throw new Error(data.error || 'Submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting application:', error);
+                console.error('Error details:', error.message);
+                
+                // Show user-friendly error message
+                const errorMessage = error.message || 'There was an error submitting your application. Please try again or contact us directly.';
+                alert('Error: ' + errorMessage + '\n\nIf the problem persists, please contact us at info@deccanbridgecareers.com');
+                
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            });
+        });
+        
+        // Load Indian states and cities
+        let statesCitiesData = {};
+        let odooCustomFields = {};
+        
+        async function loadStatesCities() {
+            try {
+                const response = await fetch('/indian-states-cities.json');
+                statesCitiesData = await response.json();
+                
+                const stateSelect = document.getElementById('state');
+                if (stateSelect) {
+                    // Populate states dropdown
+                    Object.keys(statesCitiesData).sort().forEach(state => {
+                        const option = document.createElement('option');
+                        option.value = state;
+                        option.textContent = state;
+                        stateSelect.appendChild(option);
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading states and cities:', error);
+            }
+        }
+        
+        // Handle state selection
+        function setupStateCityDropdowns() {
+            const stateSelect = document.getElementById('state');
+            const citySelect = document.getElementById('city');
+            const locationInput = document.getElementById('currentLocation');
+            
+            if (stateSelect && citySelect) {
+                stateSelect.addEventListener('change', function() {
+                    const selectedState = this.value;
+                    citySelect.innerHTML = '<option value="">Select City</option>';
+                    citySelect.disabled = !selectedState;
+                    
+                    if (selectedState && statesCitiesData[selectedState]) {
+                        statesCitiesData[selectedState].forEach(city => {
+                            const option = document.createElement('option');
+                            option.value = city;
+                            option.textContent = city;
+                            citySelect.appendChild(option);
+                        });
+                    }
+                    
+                    // Update hidden location field
+                    updateLocationField();
+                });
+                
+                citySelect.addEventListener('change', function() {
+                    updateLocationField();
+                });
+            }
+            
+            function updateLocationField() {
+                const state = stateSelect.value;
+                const city = citySelect.value;
+                if (locationInput) {
+                    if (state && city) {
+                        locationInput.value = `${city}, ${state}`;
+                    } else if (state) {
+                        locationInput.value = state;
+                    } else {
+                        locationInput.value = '';
+                    }
+                }
+            }
+        }
+        
+        // Load Odoo custom fields
+        async function loadOdooCustomFields() {
+            try {
+                const response = await fetch('/api/odoo-fields');
+                const data = await response.json();
+                if (data.success && data.fields) {
+                    odooCustomFields = {};
+                    data.fields.forEach(field => {
+                        odooCustomFields[field.name] = {
+                            description: field.field_description || field.name,
+                            type: field.ttype,
+                            required: field.required || false,
+                            readonly: field.readonly || false,
+                            help: field.help || ''
+                        };
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading Odoo custom fields:', error);
+            }
+        }
+        
+        // Mobile menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    const isActive = navLinks.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                    menuToggle.setAttribute('aria-expanded', isActive);
+                });
+                
+                navLinks.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'A') {
+                        navLinks.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+            
+            // Load states/cities and Odoo fields
+            loadStatesCities();
+            loadOdooCustomFields();
+            setupStateCityDropdowns();
+            
+            loadJobDetails();
+            
+            // Setup form caching after job details are loaded
+            setTimeout(() => {
+                // Try to restore cached form data
+                const restored = restoreFormFromCache();
+                if (restored) {
+                }
+                
+                // Setup auto-save
+                setupFormAutoSave();
+            }, 500);
+        });
+    </script>
+    
+    <!-- Footer -->
+    <footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
+        <img src="Images/DeccanBridgeCareers.jpg" alt="Deccan Bridge Careers Logo - Leading Recruitment Agency in Hyderabad" class="logo-header" loading="lazy" width="80" height="80">
+        
+        <!-- Social Media Icons Section -->
+        <div class="social-section">
+            <h4 style="margin-bottom: 1.5rem; color: #e2e8f0;">Follow Our Journey - Connect with Deccan Bridge Careers</h4>
+            <div class="social-icons">
+                <a href="https://linkedin.com/company/deccanbridgecareers" target="_blank" class="social-icon linkedin">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://twitter.com/deccanbridgecareers" target="_blank" class="social-icon twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://facebook.com/deccanbridgecareers" target="_blank" class="social-icon facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://instagram.com/deccanbridgecareers" target="_blank" class="social-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <p>&copy; 2025 Deccan Bridge Careers. All rights reserved.</p>
+        <p><a href="https://deccanbridgecareers.com" style="color: #cbd5e0; text-decoration: none;">deccanbridgecareers.com</a> - Premier Recruitment & Staffing Solutions in Hyderabad</p>
+    </footer>
+</body>
+</html>
+
