@@ -579,6 +579,187 @@
             opacity: 0.8;
             margin-bottom: 1rem;
         }
+        
+        /* Loading Overlay */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(4px);
+        }
+        
+        .loading-overlay.active {
+            display: flex;
+        }
+        
+        .loading-spinner {
+            background: white;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+        }
+        
+        .loading-spinner i {
+            font-size: 3rem;
+            color: var(--md-primary);
+            margin-bottom: 1rem;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .loading-spinner p {
+            color: var(--md-text-primary);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+        
+        /* Modal Dialog */
+        .modal-dialog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(4px);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-dialog.active {
+            display: flex;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease;
+            text-align: center;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-icon.success {
+            color: #10b981;
+        }
+        
+        .modal-icon.error {
+            color: #ef4444;
+        }
+        
+        .modal-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--md-text-primary);
+            margin-bottom: 1rem;
+            font-family: var(--md-font-display);
+        }
+        
+        .modal-message {
+            font-size: 1.1rem;
+            color: var(--md-text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .modal-btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .modal-btn-primary {
+            background: var(--md-primary);
+            color: white;
+        }
+        
+        .modal-btn-primary:hover {
+            background: var(--md-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+        }
+        
+        .modal-btn-secondary {
+            background: #e2e8f0;
+            color: #475569;
+        }
+        
+        .modal-btn-secondary:hover {
+            background: #cbd5e0;
+        }
+        
+        .modal-contact-info {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+            color: var(--md-text-secondary);
+        }
+        
+        .modal-contact-info a {
+            color: var(--md-primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .modal-contact-info a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body itemscope itemtype="https://schema.org/WebPage">
@@ -747,6 +928,26 @@
                     </button>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner"></i>
+            <p>Submitting your application...</p>
+            <p style="font-size: 0.9rem; color: var(--md-text-hint); margin-top: 0.5rem;">Please wait while we process your information</p>
+        </div>
+    </div>
+    
+    <!-- Success/Error Modal -->
+    <div class="modal-dialog" id="resultModal">
+        <div class="modal-content">
+            <div class="modal-icon" id="modalIcon"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-message" id="modalMessage"></p>
+            <div class="modal-actions" id="modalActions"></div>
+            <div class="modal-contact-info" id="modalContactInfo" style="display: none;"></div>
         </div>
     </div>
 
@@ -1283,12 +1484,78 @@
             return isValid;
         }
         
+        // Show loading overlay
+        function showLoadingOverlay() {
+            document.getElementById('loadingOverlay').classList.add('active');
+        }
+        
+        // Hide loading overlay
+        function hideLoadingOverlay() {
+            document.getElementById('loadingOverlay').classList.remove('active');
+        }
+        
+        // Show success modal
+        function showSuccessModal(message, redirectUrl = null) {
+            const modal = document.getElementById('resultModal');
+            const icon = document.getElementById('modalIcon');
+            const title = document.getElementById('modalTitle');
+            const msg = document.getElementById('modalMessage');
+            const actions = document.getElementById('modalActions');
+            const contactInfo = document.getElementById('modalContactInfo');
+            
+            icon.className = 'modal-icon success';
+            icon.innerHTML = '<i class="fas fa-check-circle"></i>';
+            title.textContent = 'Application Submitted Successfully! 🎉';
+            msg.innerHTML = message;
+            contactInfo.style.display = 'none';
+            
+            actions.innerHTML = redirectUrl 
+                ? `<a href="${redirectUrl}" class="modal-btn modal-btn-primary">Explore More Opportunities</a>`
+                : `<button class="modal-btn modal-btn-primary" onclick="closeModal()">Close</button>`;
+            
+            modal.classList.add('active');
+        }
+        
+        // Show error modal
+        function showErrorModal(errorMessage) {
+            const modal = document.getElementById('resultModal');
+            const icon = document.getElementById('modalIcon');
+            const title = document.getElementById('modalTitle');
+            const msg = document.getElementById('modalMessage');
+            const actions = document.getElementById('modalActions');
+            const contactInfo = document.getElementById('modalContactInfo');
+            
+            icon.className = 'modal-icon error';
+            icon.innerHTML = '<i class="fas fa-exclamation-circle"></i>';
+            title.textContent = 'Submission Error';
+            msg.innerHTML = errorMessage;
+            
+            contactInfo.innerHTML = 'We apologize for the inconvenience. Please contact us directly at <a href="mailto:info@deccanbridgecareers.com">info@deccanbridgecareers.com</a> or call us at <a href="tel:+919849771155">+91-9849771155</a>.';
+            contactInfo.style.display = 'block';
+            
+            actions.innerHTML = '<button class="modal-btn modal-btn-primary" onclick="closeModal()">Try Again</button>';
+            
+            modal.classList.add('active');
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('resultModal').classList.remove('active');
+        }
+        
+        // Close modal on outside click
+        document.getElementById('resultModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
         // Handle form submission
         document.getElementById('applicationForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             if (!validateForm()) {
-                alert('Please fill in all required fields');
+                showErrorModal('Please fill in all required fields before submitting your application.');
                 return;
             }
             
@@ -1334,11 +1601,14 @@
                 }
             });
             
+            // Show loading overlay
+            showLoadingOverlay();
+            
             // Submit application to server/API
             const submitButton = this.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.textContent;
+            const originalButtonText = submitButton.innerHTML;
             submitButton.disabled = true;
-            submitButton.textContent = 'Submitting...';
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
             
             // Create FormData for file upload
             const uploadFormData = new FormData();
@@ -1393,29 +1663,37 @@
                 return response.json();
             })
             .then(data => {
+                hideLoadingOverlay();
+                
                 if (data.success) {
                     // Keep cache even after successful submission
                     // clearFormCache(); // Removed - cache will persist
                     
-                    // Show success message
-                    alert('Thank you for your application! We will review your details and get back to you soon.');
+                    // Show success modal with exciting message
+                    const successMessage = `
+                        <strong>Congratulations!</strong><br><br>
+                        Your application for <strong>${currentJob.title}</strong> has been successfully submitted! 🚀<br><br>
+                        Our recruitment team will review your profile and get back to you soon. We're excited about the possibility of you joining our team!<br><br>
+                        <em>Keep an eye on your email for updates.</em>
+                    `;
                     
-                    // Redirect to jobs page
-                    window.location.href = 'Jobs.html';
+                    showSuccessModal(successMessage, 'Jobs.html');
                 } else {
                     throw new Error(data.error || 'Submission failed');
                 }
             })
             .catch(error => {
+                hideLoadingOverlay();
+                
                 console.error('Error submitting application:', error);
                 console.error('Error details:', error.message);
                 
                 // Show user-friendly error message
-                const errorMessage = error.message || 'There was an error submitting your application. Please try again or contact us directly.';
-                alert('Error: ' + errorMessage + '\n\nIf the problem persists, please contact us at info@deccanbridgecareers.com');
+                const errorMessage = 'We encountered an issue while submitting your application. This might be a temporary problem.';
+                showErrorModal(errorMessage);
                 
                 submitButton.disabled = false;
-                submitButton.textContent = originalButtonText;
+                submitButton.innerHTML = originalButtonText;
             });
         });
         

@@ -4,7 +4,6 @@ const path = require('path');
 const axios = require('axios');
 const multer = require('multer');
 const fs = require('fs');
-const xmlrpc = require('xmlrpc');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -48,25 +47,6 @@ const upload = multer({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Odoo Authentication Helper - Get session for API calls
-async function getOdooSession(odooDomain, apiKey) {
-  // For Odoo external API, we need to authenticate first
-  // Try using XML-RPC which is more reliable for external access
-  // But first, let's try to get a session using the API key
-  
-  // Extract database name from domain (e.g., deccanbridgecareers1 from deccanbridgecareers1.odoo.com)
-  const domainParts = odooDomain.replace(/^https?:\/\//, '').split('.');
-  const dbName = domainParts[0];
-  
-  try {
-    // Method 1: Try XML-RPC authentication (most reliable for external API)
-    // XML-RPC doesn't require session management
-    return { method: 'xmlrpc', db: dbName };
-  } catch (error) {
-    console.error('Error in Odoo authentication setup:', error.message);
-    return null;
-  }
-}
 
 // Serve static files from the root directory
 app.use(express.static(path.join(__dirname)));
@@ -460,14 +440,16 @@ app.post('/api/submit-application', upload.single('resume'), handleMulterError, 
     
     console.log('Odoo Opportunity Data:', JSON.stringify(odooOpportunityData, null, 2));
     
-    // Submit to Odoo CRM using XML-RPC or REST API
+    // Submit to Odoo CRM using web session authentication
     const odooDomain = process.env.ODOO_DOMAIN?.replace(/\/$/, '');
-    const apiKey = process.env.ODOO_API_KEY;
-    // Optional: username and password for XML-RPC authentication
-    const odooUsername = process.env.ODOO_USERNAME || apiKey; // Fallback to API key
-    const odooPassword = process.env.ODOO_PASSWORD || apiKey; // Fallback to API key
+    const odooUsername = process.env.ODOO_USERNAME;
+    const odooPassword = process.env.ODOO_PASSWORD;
+    const dbName = process.env.ODOO_DB_NAME || (() => {
+      const domainParts = odooDomain?.replace(/^https?:\/\//, '').split('.');
+      return domainParts?.[0];
+    })();
     
-    if (!odooDomain || !apiKey) {
+    if (!odooDomain || !odooUsername || !odooPassword || !dbName) {
       console.error('Odoo credentials not configured');
       return res.status(500).json({ 
         success: false, 
@@ -475,303 +457,131 @@ app.post('/api/submit-application', upload.single('resume'), handleMulterError, 
       });
     }
     
-    // Submit to Odoo CRM using XML-RPC (most reliable for external API)
-    // XML-RPC doesn't require session management
     try {
-      // Extract database name from domain
-      // For Odoo.com hosted instances, database name is usually the subdomain
-      // But it can also be specified in environment variable
-      const dbName = process.env.ODOO_DB_NAME || (() => {
-        const domainParts = odooDomain.replace(/^https?:\/\//, '').split('.');
-        return domainParts[0]; // e.g., "deccanbridgecareers1"
-      })();
-      
-      
-      // For Odoo, we need username and password for XML-RPC
-      // Since we only have API key, let's try using it as external API token
-      // First, try XML-RPC with API key as authentication
-      const xmlrpcUrl = `${odooDomain}/xmlrpc/2/object`;
-      
-      // Method 1: Try XML-RPC (requires username/password, but let's try with API key)
-      // Actually, for external API, we should use the API key with proper endpoints
-      // Let's try authenticating first to get a session
-      
-      // Try to authenticate and get UID using XML-RPC
-      let uid = null;
-      
-      try {
-        
-        // Create XML-RPC client for authentication
-        const url = new URL(odooDomain);
-        const commonClient = xmlrpc.createClient({
-          host: url.hostname,
-          port: url.port || (url.protocol === 'https:' ? 443 : 80),
-          path: '/xmlrpc/2/common',
-          basic_auth: {
-            user: odooUsername,
-            pass: odooPassword
-          }
-        });
-        
-        // Use XML-RPC authenticate method (proper XML format)
-        uid = await new Promise((resolve, reject) => {
-          commonClient.methodCall('authenticate', [dbName, odooUsername, odooPassword, {}], (error, value) => {
-            if (error) {
-              reject(error);
-            } else {
-              resolve(value);
-            }
-          });
-        });
-        
-        if (uid && uid !== false) {
-          console.log('✅ Odoo XML-RPC authentication successful, UID:', uid);
-        } else {
-          console.error('❌ XML-RPC authentication failed - invalid credentials or database name');
-          console.error('UID returned:', uid);
-          uid = null;
+      // Authenticate using web session
+      console.log('Authenticating with Odoo using web session...');
+      const webAuthResponse = await axios.post(
+        `${odooDomain}/web/session/authenticate`,
+        {
+          jsonrpc: '2.0',
+          params: {
+            db: dbName,
+            login: odooUsername,
+            password: odooPassword,
+          },
+          id: Math.floor(Math.random() * 1000000)
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          timeout: 10000,
+          withCredentials: true
         }
-      } catch (authError) {
-        console.error('❌ XML-RPC authentication error:', authError.message);
-        if (authError.stack) {
-          console.error('Stack:', authError.stack);
-        }
-        
-        // Try web session authentication as fallback
-        console.log('Trying web session authentication...');
-        try {
-          const webAuthResponse = await axios.post(
-            `${odooDomain}/web/session/authenticate`,
-            {
-              jsonrpc: '2.0',
-              params: {
-                db: dbName,
-                login: odooUsername,
-                password: odooPassword,
-              },
-              id: Math.floor(Math.random() * 1000000)
-            },
-            {
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              timeout: 10000,
-              withCredentials: true
-            }
-          );
-          
-          
-          if (webAuthResponse.data?.result?.uid) {
-            uid = webAuthResponse.data.result.uid;
-            // Get session cookies from response
-            const cookies = webAuthResponse.headers['set-cookie'] || [];
-            console.log('✅ Web session authentication successful, UID:', uid);
-            
-            // Use web session API to create lead (more reliable than XML-RPC)
-            try {
-              // Use /web/dataset/call_kw endpoint with session
-              const createResponse = await axios.post(
-                `${odooDomain}/web/dataset/call_kw/crm.lead/create`,
-                {
-                  jsonrpc: '2.0',
-                  method: 'call',
-                  params: {
-                    model: 'crm.lead',
-                    method: 'create',
-                    args: [odooOpportunityData],
-                    kwargs: {}
-                  },
-                  id: Math.floor(Math.random() * 1000000)
-                },
-                {
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'Cookie': cookies.join('; ')
-                  },
-                  timeout: 30000,
-                  withCredentials: true
-                }
-              );
-              
-              const leadId = createResponse.data?.result || null;
-              
-              if (!leadId) {
-                console.error('❌ Opportunity creation failed - no opportunity ID returned');
-                console.error('Response:', createResponse.data);
-                throw new Error('Failed to create opportunity in Odoo');
-              }
-              
-              console.log('✅ Opportunity created successfully via Web Session API, ID:', leadId);
-              
-              // Attach resume if available
-              if (resumeAttachmentData && leadId && req.file) {
-                try {
-                  const attachResponse = await axios.post(
-                    `${odooDomain}/web/dataset/call_kw/ir.attachment/create`,
-                    {
-                      jsonrpc: '2.0',
-                      method: 'call',
-                      params: {
-                        model: 'ir.attachment',
-                        method: 'create',
-                        args: [{
-                          name: resumeFileName,
-                          type: 'binary',
-                          datas: resumeAttachmentData.datas,
-                          res_model: 'crm.lead',
-                          res_id: leadId,
-                          mimetype: req.file.mimetype
-                        }],
-                        kwargs: {}
-                      },
-                      id: Math.floor(Math.random() * 1000000)
-                    },
-                    {
-                      headers: {
-                        'Content-Type': 'application/json',
-                        'Cookie': cookies.join('; ')
-                      },
-                      timeout: 30000,
-                      withCredentials: true
-                    }
-                  );
-                  console.log('✅ Resume attached to Odoo opportunity, Attachment ID:', attachResponse.data?.result);
-                } catch (attachError) {
-                  console.error('❌ Error attaching resume:', attachError.message);
-                  if (attachError.response) {
-                    console.error('Response:', attachError.response.data);
-                  }
-                }
-              }
-              
-              if (resumeFilePath && fs.existsSync(resumeFilePath)) {
-                console.log('Resume file saved at:', resumeFilePath);
-              }
-              
-              return res.json({ 
-                success: true, 
-                message: 'Application submitted successfully',
-                odooId: leadId,
-                resumeAttached: !!resumeAttachmentData
-              });
-            } catch (createError) {
-              console.error('❌ Error creating opportunity via Web Session API:', createError.message);
-              if (createError.response) {
-                console.error('Response status:', createError.response.status);
-                console.error('Response data:', JSON.stringify(createError.response.data, null, 2));
-              }
-              throw createError;
-            }
-          } else {
-            console.error('❌ Web session authentication failed');
-          }
-        } catch (webAuthError) {
-          console.error('❌ Web session authentication error:', webAuthError.message);
-          if (webAuthError.response) {
-            console.error('Response status:', webAuthError.response.status);
-            console.error('Response data:', JSON.stringify(webAuthError.response.data, null, 2));
-          }
-        }
+      );
+      
+      if (!webAuthResponse.data?.result?.uid) {
+        console.error('❌ Web session authentication failed');
+        throw new Error('Odoo authentication failed');
       }
       
-      // Fallback: If we have UID from XML-RPC but web session failed, try XML-RPC
-      if (uid && !res.headersSent) {
-              console.log('Creating CRM opportunity via XML-RPC (fallback)...');
-        try {
-          // Create XML-RPC client for object operations
-          const objectClient = xmlrpc.createClient({
-            host: new URL(odooDomain).hostname,
-            port: new URL(odooDomain).port || (odooDomain.startsWith('https') ? 443 : 80),
-            path: '/xmlrpc/2/object',
-            basic_auth: {
-              user: odooUsername,
-              pass: odooPassword
-            }
-          });
-          
-          // Use XML-RPC execute_kw method
-          const leadId = await new Promise((resolve, reject) => {
-            objectClient.methodCall('execute_kw', [
-              dbName,
-              uid,
-              odooPassword,
-              'crm.lead',
-              'create',
-              [odooOpportunityData]
-            ], (error, value) => {
-              if (error) {
-                reject(error);
-              } else {
-                resolve(value);
-              }
-            });
-          });
-          
-          console.log('✅ Application submitted to Odoo CRM via XML-RPC, Opportunity ID:', leadId);
-          
-          if (!leadId) {
-            console.error('❌ Opportunity creation failed - no opportunity ID returned');
-            throw new Error('Failed to create opportunity in Odoo');
+      const uid = webAuthResponse.data.result.uid;
+      const cookies = webAuthResponse.headers['set-cookie'] || [];
+      console.log('✅ Web session authentication successful, UID:', uid);
+      
+      // Create opportunity using web session API
+      try {
+        const createResponse = await axios.post(
+          `${odooDomain}/web/dataset/call_kw/crm.lead/create`,
+          {
+            jsonrpc: '2.0',
+            method: 'call',
+            params: {
+              model: 'crm.lead',
+              method: 'create',
+              args: [odooOpportunityData],
+              kwargs: {}
+            },
+            id: Math.floor(Math.random() * 1000000)
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              'Cookie': cookies.join('; ')
+            },
+            timeout: 30000,
+            withCredentials: true
           }
-          
-          console.log('✅ Opportunity created successfully, ID:', leadId);
-          
-          // Attach resume if available
-          if (resumeAttachmentData && leadId && req.file) {
-            try {
-              const attachmentId = await new Promise((resolve, reject) => {
-                objectClient.methodCall('execute_kw', [
-                  dbName,
-                  uid,
-                  odooPassword,
-                  'ir.attachment',
-                  'create',
-                  [{
+        );
+        
+        const leadId = createResponse.data?.result || null;
+        
+        if (!leadId) {
+          console.error('❌ Opportunity creation failed - no opportunity ID returned');
+          console.error('Response:', createResponse.data);
+          throw new Error('Failed to create opportunity in Odoo');
+        }
+        
+        console.log('✅ Opportunity created successfully via Web Session API, ID:', leadId);
+        
+        // Attach resume if available
+        if (resumeAttachmentData && leadId && req.file) {
+          try {
+            const attachResponse = await axios.post(
+              `${odooDomain}/web/dataset/call_kw/ir.attachment/create`,
+              {
+                jsonrpc: '2.0',
+                method: 'call',
+                params: {
+                  model: 'ir.attachment',
+                  method: 'create',
+                  args: [{
                     name: resumeFileName,
                     type: 'binary',
                     datas: resumeAttachmentData.datas,
                     res_model: 'crm.lead',
                     res_id: leadId,
                     mimetype: req.file.mimetype
-                  }]
-                ], (error, value) => {
-                  if (error) {
-                    reject(error);
-                  } else {
-                    resolve(value);
-                  }
-                });
-              });
-              console.log('✅ Resume attached to Odoo opportunity via XML-RPC, Attachment ID:', attachmentId);
-            } catch (attachError) {
-              console.error('❌ Error attaching resume:', attachError.message);
-              if (attachError.stack) {
-                console.error('Stack:', attachError.stack);
+                  }],
+                  kwargs: {}
+                },
+                id: Math.floor(Math.random() * 1000000)
+              },
+              {
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Cookie': cookies.join('; ')
+                },
+                timeout: 30000,
+                withCredentials: true
               }
+            );
+            console.log('✅ Resume attached to Odoo opportunity, Attachment ID:', attachResponse.data?.result);
+          } catch (attachError) {
+            console.error('❌ Error attaching resume:', attachError.message);
+            if (attachError.response) {
+              console.error('Response:', attachError.response.data);
             }
           }
-        
-          if (resumeFilePath && fs.existsSync(resumeFilePath)) {
-            console.log('Resume file saved at:', resumeFilePath);
-          }
-          
-          return res.json({ 
-            success: true, 
-            message: 'Application submitted successfully',
-            odooId: leadId,
-            resumeAttached: !!resumeAttachmentData
-          });
-        } catch (createError) {
-          console.error('❌ Error creating lead via XML-RPC:', createError.message);
-          if (createError.response) {
-            console.error('Response status:', createError.response.status);
-            console.error('Response data:', JSON.stringify(createError.response.data, null, 2));
-          }
-          throw createError; // Re-throw to be caught by outer catch
         }
-      } else {
-        console.error('❌ Authentication failed - cannot proceed without UID');
-        throw new Error('Odoo authentication failed. Please check credentials and database name.');
+        
+        if (resumeFilePath && fs.existsSync(resumeFilePath)) {
+          console.log('Resume file saved at:', resumeFilePath);
+        }
+        
+        return res.json({ 
+          success: true, 
+          message: 'Application submitted successfully',
+          odooId: leadId,
+          resumeAttached: !!resumeAttachmentData
+        });
+      } catch (createError) {
+        console.error('❌ Error creating opportunity via Web Session API:', createError.message);
+        if (createError.response) {
+          console.error('Response status:', createError.response.status);
+          console.error('Response data:', JSON.stringify(createError.response.data, null, 2));
+        }
+        throw createError;
       }
       
       // If we reach here, authentication failed - try REST API with API key as fallback (not recommended)
@@ -1109,130 +919,78 @@ app.post('/api/submit-contact', express.json(), async (req, res) => {
       }
     });
     
-    // Try to authenticate and create opportunity
-    let uid = null;
-    
+    // Authenticate and create opportunity using web session
     try {
-      // Try XML-RPC authentication first
-      const url = new URL(odooDomain);
-      const commonClient = xmlrpc.createClient({
-        host: url.hostname,
-        port: url.port || (url.protocol === 'https:' ? 443 : 80),
-        path: '/xmlrpc/2/common',
-        basic_auth: {
-          user: odooUsername,
-          pass: odooPassword
+      console.log('Authenticating with Odoo using web session...');
+      const webAuthResponse = await axios.post(
+        `${odooDomain}/web/session/authenticate`,
+        {
+          jsonrpc: '2.0',
+          params: {
+            db: dbName,
+            login: odooUsername,
+            password: odooPassword,
+          },
+          id: Math.floor(Math.random() * 1000000)
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          timeout: 10000,
+          withCredentials: true
         }
-      });
+      );
       
-      uid = await new Promise((resolve, reject) => {
-        commonClient.methodCall('authenticate', [dbName, odooUsername, odooPassword, {}], (error, value) => {
-          if (error) {
-            reject(error);
-          } else {
-            resolve(value);
-          }
-        });
-      });
+      if (!webAuthResponse.data?.result?.uid) {
+        console.error('❌ Web session authentication failed');
+        throw new Error('Odoo authentication failed');
+      }
       
-      if (uid && uid !== false) {
-        // Use XML-RPC to create opportunity
-        const objectClient = xmlrpc.createClient({
-          host: url.hostname,
-          port: url.port || (url.protocol === 'https:' ? 443 : 80),
-          path: '/xmlrpc/2/object',
-          basic_auth: {
-            user: odooUsername,
-            pass: odooPassword
-          }
-        });
-        
-        const opportunityId = await new Promise((resolve, reject) => {
-          objectClient.methodCall('execute_kw', [
-            dbName,
-            uid,
-            odooPassword,
-            'crm.lead',
-            'create',
-            [odooOpportunityData]
-          ], (error, value) => {
-            if (error) {
-              reject(error);
-            } else {
-              resolve(value);
-            }
-          });
-        });
-        
+      const uid = webAuthResponse.data.result.uid;
+      const cookies = webAuthResponse.headers['set-cookie'] || [];
+      console.log('✅ Web session authentication successful, UID:', uid);
+      
+      // Use web session API to create opportunity
+      const createResponse = await axios.post(
+        `${odooDomain}/web/dataset/call_kw/crm.lead/create`,
+        {
+          jsonrpc: '2.0',
+          method: 'call',
+          params: {
+            model: 'crm.lead',
+            method: 'create',
+            args: [odooOpportunityData],
+            kwargs: {}
+          },
+          id: Math.floor(Math.random() * 1000000)
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Cookie': cookies.join('; ')
+          },
+          timeout: 30000,
+          withCredentials: true
+        }
+      );
+      
+      const opportunityId = createResponse.data?.result || null;
+      
+      if (opportunityId) {
         return res.json({ 
           success: true, 
           message: 'Contact form submitted successfully',
           odooId: opportunityId
         });
+      } else {
+        throw new Error('Failed to create opportunity in Odoo');
       }
-    } catch (xmlrpcError) {
-      // Fallback to web session authentication
-      try {
-        const webAuthResponse = await axios.post(
-          `${odooDomain}/web/session/authenticate`,
-          {
-            jsonrpc: '2.0',
-            params: {
-              db: dbName,
-              login: odooUsername,
-              password: odooPassword,
-            },
-            id: Math.floor(Math.random() * 1000000)
-          },
-          {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            timeout: 10000,
-            withCredentials: true
-          }
-        );
-        
-        if (webAuthResponse.data?.result?.uid) {
-          uid = webAuthResponse.data.result.uid;
-          const cookies = webAuthResponse.headers['set-cookie'] || [];
-          
-          // Use web session API to create opportunity
-          const createResponse = await axios.post(
-            `${odooDomain}/web/dataset/call_kw/crm.lead/create`,
-            {
-              jsonrpc: '2.0',
-              method: 'call',
-              params: {
-                model: 'crm.lead',
-                method: 'create',
-                args: [odooOpportunityData],
-                kwargs: {}
-              },
-              id: Math.floor(Math.random() * 1000000)
-            },
-            {
-              headers: {
-                'Content-Type': 'application/json',
-                'Cookie': cookies.join('; ')
-              },
-              timeout: 30000,
-              withCredentials: true
-            }
-          );
-          
-          const opportunityId = createResponse.data?.result || null;
-          
-          if (opportunityId) {
-            return res.json({ 
-              success: true, 
-              message: 'Contact form submitted successfully',
-              odooId: opportunityId
-            });
-          }
-        }
-      } catch (webError) {
-        console.error('Error creating contact opportunity:', webError.message);
+    } catch (webError) {
+      console.error('Error creating contact opportunity:', webError.message);
+      if (webError.response) {
+        console.error('Response status:', webError.response.status);
+        console.error('Response data:', JSON.stringify(webError.response.data, null, 2));
       }
     }
     
